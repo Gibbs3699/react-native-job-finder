@@ -8,6 +8,11 @@ Use [`expo-router`](https://expo.github.io/router) to build native navigation us
 npx create-react-native-app -t with-router
 ```
 
+## Axios 
+```
+npm install expo-font axios react-native-dotenv
+```
+
 ## 📝 Notes
 
 - [Expo Router: Docs](https://expo.github.io/router)
