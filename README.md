@@ -23,3 +23,6 @@ npm install expo-font axios react-native-dotenv
 <img width="695" alt="Screenshot 2566-04-19 at 14 08 22" src="https://user-images.githubusercontent.com/57714919/232994506-e960694f-c4e6-4cfe-af15-989a5333b7cc.png">
 
 - [More Info](https://dev.to/hambalee/arrow-function-javascript-51k)
+
+# useState
+<img width="421" alt="Screenshot 2566-05-10 at 14 35 16" src="https://github.com/Gibbs3699/react-native-job-finder/assets/57714919/83817c74-b93e-433e-88a9-9c1d533ad49e">
