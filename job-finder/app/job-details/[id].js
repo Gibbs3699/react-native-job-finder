@@ -10,9 +10,14 @@ const JobDetails = () => {
     const params = useSearchParams()
     const router = useRouter()
 
+    const tabs = ["About", "Qualifications", "Responsibilities"]
     const { data, isLoading, error, refetch } = useFetch('job-details', { job_id: params.id })
+
     const [refreshing, setRefreshing] = useState(false)
+    const [activeTab, setActiveTab] = useState(tabs[0])
+
     const onRefresh = () => { }
+
     return (
         <SafeAreaView
             style={{ flex: 1, backgroundColor: COLORS.lightWhite }}
@@ -61,6 +66,9 @@ const JobDetails = () => {
                                 location={data[0].job_country}
                             />
                             <JobTabs
+                                tabs={tabs}
+                                activeTab={activeTab}
+                                setActiveTab={setActiveTab}
                             />
                         </View>
                     )}
