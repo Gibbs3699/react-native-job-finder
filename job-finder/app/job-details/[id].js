@@ -10,9 +10,35 @@ const JobDetails = () => {
     const params = useSearchParams()
     const router = useRouter()
 
+    const tabs = ["About", "Qualifications", "Responsibilities"]
     const { data, isLoading, error, refetch } = useFetch('job-details', { job_id: params.id })
+
     const [refreshing, setRefreshing] = useState(false)
+    const [activeTab, setActiveTab] = useState(tabs[0])
+
     const onRefresh = () => { }
+
+    const displayTabContent = () => {
+        switch (activeTab) {
+            case "Qualification":
+                return <Specifics
+                    title="Qualification"
+                    point={data[0].job_hightlights?.Qualifications ?? ['N/A']}
+                />
+            case "About":
+                return <JobAbout
+                info={data[0].job_description ?? "No data provided"}
+                />
+            case "Responsibilities":
+                return <Specifics
+                title="Responsibilities"
+                point={data[0].job_hightlights?.Responsibilities ?? ['N/A']}
+            />
+            default:
+                break;
+        }
+    }
+
     return (
         <SafeAreaView
             style={{ flex: 1, backgroundColor: COLORS.lightWhite }}
@@ -61,7 +87,11 @@ const JobDetails = () => {
                                 location={data[0].job_country}
                             />
                             <JobTabs
+                                tabs={tabs}
+                                activeTab={activeTab}
+                                setActiveTab={setActiveTab}
                             />
+                            {displayTabContent()}
                         </View>
                     )}
                 </ScrollView>
